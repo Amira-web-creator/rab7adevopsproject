@@ -2,17 +2,19 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@0.0.4
 workflows:
-  build_test_deploy:
-    jobs:
-      - build_test
-      - aws-ecr/build_and_push_image:
-          region: us-east-1
-          account-url: ${AWS_ECR_ACCOUNT_URL}
-          repo: "$MYFLASKREPO"
-          tag: ${CIRCLE_BUILD_NUM}
-          requires:
-            - build_test
-      - docker_hub_build_push_image
+    build_test_deploy:
+      jobs:
+        - build_test
+        - docker_hub_build_push_image:
+            requires:
+              - build_test
+        - aws-ecr/build_and_push_image:
+            region: us-east-1
+            account-url: ${AWS_ECR_ACCOUNT_URL}
+            repo: "$MYFLASKREPO"
+            tag: ${CIRCLE_BUILD_NUM}
+            requires:
+              - build_test
 
 jobs:
   build_test:
@@ -44,9 +46,9 @@ jobs:
                   echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> ${BASH_ENV}
                   echo 'export IMAGE_NAME="$MYFLASKREPO"' >> ${BASH_ENV}
                   source ${BASH_ENV}
-                  docker build -t ${DOCKER_USER}/${IMAGE_NAME} -t ${DOCKER_USER}/${IMAGE_NAME}:${TAG} .
-                  echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
-                  docker push ${DOCKER_USER}/${IMAGE_NAME}
+                  docker build -t ${DOCKERhub_USER}/${IMAGE_NAME} -t ${DOCKERhub_USER}/${IMAGE_NAME}:${TAG} .
+                  echo ${DOCKERhub_PASS} | docker login -u ${DOCKERhub_USER} --password-stdin
+                  docker push ${DOCKERhub_USER}/${IMAGE_NAME}
 
 
 
