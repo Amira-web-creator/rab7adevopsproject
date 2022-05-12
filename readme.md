@@ -31,3 +31,9 @@
 [ ] write the app dockerfile
 [ ] push the image to ECR
 [ ] building and pushing the image using CircleCI
+
+
+![Ecr 1](Circleci-Ecrscreens/1.png)
+![Ecr 2](Circleci-Ecrscreens/2.png)
+![Ecr 3](Circleci-Ecrscreens/extra-work.png)
+
