@@ -29,6 +29,11 @@
 ![RDs 9](RDS_screens/9.png)
 
 [ ] write the app dockerfile
+
+![docker-container 1](docker_container/1.png)
+![docker-container 2](docker_container/2.png)
+![docker-container 3](docker_container/3.png)
+
 [ ] push the image to ECR
 [ ] building and pushing the image using CircleCI
 
