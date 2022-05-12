@@ -7,10 +7,11 @@ DATABASE = os.path.join(PROJECT_ROOT, 'todo.db')
 
 app = Flask(__name__)
 # To run the project on your local machine.
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////" + DATABASE
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////" + DATABASE
 
 # to connect the app to RDS server
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://{user}:{password}@{rds-url}:{port}/{db-name}'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://admin:admin1234@database-1.cne3gctopucd.us-east-1.rds.amazonaws.com:3306/sys'
+
 db = SQLAlchemy(app)
 
 
@@ -54,3 +55,4 @@ def delete(todo_id):
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True, host='0.0.0.0', port=3000)
+

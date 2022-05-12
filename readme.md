@@ -17,6 +17,17 @@
 [ ] Push the project to github
 [ ] make some changes on index.html, commit changes and push the changes to your repo.
 [ ] connect the project to AWS RDS Server
+
+![RDs 1](RDS_screens/1.png)
+![RDs 2](RDS_screens/2.png)
+![RDs 3](RDS_screens/3.png)
+![RDs 4](RDS_screens/4.png)
+![RDs 5](RDS_screens/5.png)
+![RDs 6](RDS_screens/6.png)
+![RDs 7](RDS_screens/7.png)
+![RDs 8](RDS_screens/8.png)
+![RDs 9](RDS_screens/9.png)
+
 [ ] write the app dockerfile
 [ ] push the image to ECR
 [ ] building and pushing the image using CircleCI
